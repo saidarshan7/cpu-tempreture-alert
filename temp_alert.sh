@@ -10,6 +10,7 @@ python3 parse.py
 
 #to decide whether a tempreture is more than 70 OR battery is more than 80
 
+#this is for charging check
 battery_raw_data=$( acpi | grep -E -o '[0-9]{2}%' )  #this is for batter percen>
 b_p=$(echo $battery_raw_data | sed 's/%//g')
 status=$( acpi | grep -o 'Charging' )
@@ -24,7 +25,7 @@ fi
 
 
 
-
+#system tempreture check
 while read line; do
 
     num=$(($line+0))
